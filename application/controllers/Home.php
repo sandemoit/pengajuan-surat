@@ -12,12 +12,12 @@ class Home extends CI_Controller
     public function index()
     {
         $data['profil'] = $this->galery->profil();
-        $judul = [
-            'title' => 'Home - Kelurahan Pulau',
+        $title = [
+            'title' => 'Home - Permohonan Surat Pengantar',
             'sub_title' => ''
         ];
 
-        $this->load->view('frontend/header', $judul);
+        $this->load->view('frontend/header', $title);
         $this->load->view('frontend/home', $data);
         $this->load->view('frontend/footer', $data);
     }

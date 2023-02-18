@@ -11,16 +11,16 @@
             <?= form_open_multipart('suratonline/ajukan', 'id="ajukanSurat"') ?>
             <div class="row">
                 <div class="col-lg-6">
-                    <label for="nik">NIK *</label>
-                    <?= form_input(['name' => 'nik', 'id' => 'nik', 'class' => 'form-control', "required" => "required", 'placeholder' => 'Silahkan masukkan NIK anda']); ?>
+                    <label for="nim">NIM *</label>
+                    <?= form_input(['name' => 'nim', 'id' => 'nim', 'class' => 'form-control', "required" => "required", 'placeholder' => 'Silahkan masukkan NIM anda']); ?>
                 </div>
                 <div class="col-lg-6">
                     <label for="nama">Nama *</label>
                     <?= form_input(['name' => 'nama', 'id' => 'nama', 'class' => 'form-control', "required" => "required", 'placeholder' => 'Silahkan masukkan nama anda']); ?>
                 </div>
                 <div class="col-lg-6 mt-2">
-                    <label for="no_hp">No Hp *</label>
-                    <?= form_input(['type' => 'text', 'name' => 'no_hp', 'id' => 'no_hp', 'class' => 'form-control', "required" => "required", 'placeholder' => 'Silahkan masukkan No Hp anda']); ?>
+                    <label for="nowa">No WhatsApp *</label>
+                    <?= form_input(['type' => 'text', 'name' => 'nowa', 'id' => 'nowa', 'class' => 'form-control', "required" => "required", 'placeholder' => 'Silahkan masukkan No WhatsApp anda']); ?>
                 </div>
                 <div class="col-lg-6 mt-2">
                     <label for="jenis">Pilih Jenis Surat *</label>
