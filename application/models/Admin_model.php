@@ -27,4 +27,15 @@ class Admin_model extends CI_Model
     {
         return $this->db->delete($table, [$pk => $id]);
     }
+
+    function get_pengajuan()
+    {
+        $query = "SELECT *
+                    FROM `pengajuan_surat` JOIN `mahasiswa`
+                    ON `pengajuan_surat`.`NIM` = `mahasiswa`.`nim`
+                    ORDER BY `tanggal` desc
+        ";
+
+        return $this->db->query($query)->result_array();
+    }
 }

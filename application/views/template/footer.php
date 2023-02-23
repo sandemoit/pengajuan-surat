@@ -22,7 +22,7 @@
 <script src="<?php echo base_url('assets') ?>/js/chart/apex-chart/moment.min.js"></script>
 <script src="<?php echo base_url('assets') ?>/js/notify/bootstrap-notify.min.js"></script>
 <script src="<?php echo base_url('assets') ?>/js/dashboard/default.js"></script>
-<script src="<?php echo base_url('assets') ?>/js/notify/index.js"></script>
+<!-- <script src="<?php echo base_url('assets') ?>/js/notify/index.js"></script> -->
 <script src="<?php echo base_url('assets') ?>/js/typeahead/handlebars.js"></script>
 <script src="<?php echo base_url('assets') ?>/js/typeahead/typeahead.bundle.js"></script>
 <script src="<?php echo base_url('assets') ?>/js/typeahead/typeahead.custom.js"></script>

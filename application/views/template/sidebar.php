@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">
+                            <li class="breadcrumb-item"><a href="<?= site_url('admin/dashboard') ?>">
                                     <svg class="stroke-icon">
                                         <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#stroke-home"></use>
                                     </svg></a></li>
