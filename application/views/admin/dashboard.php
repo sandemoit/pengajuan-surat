@@ -7,7 +7,7 @@
                     <div class="media">
                         <div class="media-body">
                             <div class="greeting-user">
-                                <h4 class="f-w-600">Welcome to cuba</h4>
+                                <h4 class="f-w-600">Welcome to SPM</h4>
                                 <p>Here whats happing in your account today</p>
                                 <div class="whatsnew-btn"><a class="btn btn-outline-white">Whats New !</a></div>
                             </div>
@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h4>10,000</h4><span class="f-light">Purchase</span>
+                                    <h4><?= $total_sk ?></h4><span class="f-light">Surat Keterangan</span>
                                 </div>
                             </div>
                             <div class="font-secondary f-w-500"><i class="icon-arrow-up icon-rotate me-1"></i><span>+50%</span></div>
@@ -71,7 +71,7 @@
                                     <div class="widget-round primary">
                                         <div class="bg-round">
                                             <svg class="svg-fill">
-                                                <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#tag"> </use>
+                                                <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#cart"> </use>
                                             </svg>
                                             <svg class="half-circle svg-fill">
                                                 <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#halfcircle"></use>
@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h4>4,200</h4><span class="f-light">Sales</span>
+                                        <h4><?= $total_masuk; ?></h4><span class="f-light">Surat Masuk</span>
                                     </div>
                                 </div>
                                 <div class="font-primary f-w-500"><i class="icon-arrow-up icon-rotate me-1"></i><span>+70%</span></div>
@@ -98,7 +98,7 @@
                                 <div class="widget-round warning">
                                     <div class="bg-round">
                                         <svg class="svg-fill">
-                                            <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#return-box"> </use>
+                                            <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#cart"> </use>
                                         </svg>
                                         <svg class="half-circle svg-fill">
                                             <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#halfcircle"></use>
@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h4>7000</h4><span class="f-light">Sales return</span>
+                                    <h4><?= $total_user; ?></h4><span class="f-light">User</span>
                                 </div>
                             </div>
                             <div class="font-warning f-w-500"><i class="icon-arrow-down icon-rotate me-1"></i><span>-20%</span></div>
@@ -119,7 +119,7 @@
                                     <div class="widget-round success">
                                         <div class="bg-round">
                                             <svg class="svg-fill">
-                                                <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#rate"> </use>
+                                                <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#cart"> </use>
                                             </svg>
                                             <svg class="half-circle svg-fill">
                                                 <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#halfcircle"></use>
@@ -127,7 +127,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h4>5700</h4><span class="f-light">Purchase rate</span>
+                                        <h4><?= $total_keluar; ?></h4><span class="f-light">Surat Keluar</span>
                                     </div>
                                 </div>
                                 <div class="font-success f-w-500"><i class="icon-arrow-up icon-rotate me-1"></i><span>+70%</span></div>
@@ -137,7 +137,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xxl-auto col-xl-12 col-sm-6 box-col-6">
+        <!-- <div class="col-xxl-auto col-xl-12 col-sm-6 box-col-6">
             <div class="row">
                 <div class="col-xxl-12 col-xl-6 box-col-12">
                     <div class="card widget-1 widget-with-chart">
@@ -164,7 +164,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- <div class="col-xxl-8 col-lg-12 box-col-12">
                         <div class="card">
                             <div class="card-header card-no-border">

@@ -14,10 +14,7 @@ class Suratonline extends CI_Controller
     public function index()
     {
         $data['profil'] = $this->galery->profil();
-        $data = [
-            'title' => 'Pengajuan Surat Online',
-            'sub_title' => ''
-        ];
+        $data['title'] = 'Pengajuan Surat Online';
 
         $data['options'] = [
             'Pilih',
@@ -99,7 +96,7 @@ class Suratonline extends CI_Controller
         } else {
             $namafile = substr($_FILES['file']['name'], -7);
             $file = $jenis_surat . uniqid() . $namafile;
-            $config['upload_path']          = './uploads/berkas';
+            $config['upload_path']          = './assets/uploads/berkas';
             $config['allowed_types']        = 'JPEG/JPG/PDF/PNG';
             $config['max_size']             = 10240; // 10MB
             $config['file_name']            = $file;

@@ -48,4 +48,55 @@ class Pengajuan extends CI_Controller
         $this->load->view('admin/management_surat/pengajuan', $data);
         $this->load->view('template/footer', $data);
     }
+
+    public function updateStatus($id)
+    {
+        $options = [
+            'SPKK' => 'Kartu Keluarga',
+            'SPNA' => 'Nikah(N.A)',
+            'SKKL' => 'Kelahiran',
+            'SKKM' => 'Kematian',
+            'SKP' => 'Pindah',
+            'SKD' => 'Datang',
+            'SKBM' => 'Belum Menikah',
+            'SKPH' => 'Penghasilan',
+            'SKM' => 'Miskin',
+            'SKU' => 'Usaha',
+            'SKT' => 'Tanah',
+            'SKGG' => 'Ganti Rugi',
+            'SITU' => 'Izin Tempat Usaha',
+            'SIMB' => 'Izin Mendirikan Bangunan',
+        ];
+
+        $status = $this->input->post('status');
+
+        // if ($status == 5) {
+        //     $pSurat = $this->db->get_where('pengajuan_surat', ['id' => $id])->row_array();
+        //     $pndk = $this->db->get_where('mahasiswa', ['nim' => $pSurat['NIM']])->row_array();
+        //     $dateNow = date('Y-m-d');
+
+        //     $save = [
+        //         'nama_surat_keluar' => '[' . $pndk['nama'] . '-' . $pndk['nim'] . ']-Surat ' . $options[$pSurat['jenis_surat']],
+        //         'tanggal_surat_keluar' => date('Y-m-d', strtotime($dateNow)),
+        //         'keterangan_surat_keluar' => 'ID: ' . $pSurat['id']
+        //     ];
+
+        //     $this->db->insert('surat_keluar', $save);
+        // };
+
+        $this->db->set('status', $status);
+        $this->db->where(['id' => $id]);
+        $this->db->update('pengajuan_surat');
+
+        set_pesan('Status Pengajuan ID: ' . $id . ' Has ben update!');
+        redirect('admin/pengajuan');
+    }
+
+    public function delete($id)
+    {
+        $id = encode_php_tags($id);
+        $this->Admin_model->delete('pengajuan_surat', 'id', $id);
+        set_pesan('Data successfully delete');
+        redirect('admin/pengajuan');
+    }
 }

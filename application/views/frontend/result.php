@@ -22,14 +22,14 @@
 									<td><?= $row['nama'] ?></td>
 								</tr>
 								<tr>
-									<td>NIK</td>
+									<td>NIM</td>
 									<td>:</td>
-									<td><?= $row['NIK'] ?></td>
+									<td><?= $row['NIM'] ?></td>
 								</tr>
 								<tr>
 									<td>No Hp</td>
 									<td>:</td>
-									<td><?= $row['no_hp'] ?></td>
+									<td><?= $row['nowa'] ?></td>
 								</tr>
 								<tr>
 									<td>Jenis Surat</td>
