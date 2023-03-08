@@ -70,19 +70,19 @@ class Pengajuan extends CI_Controller
 
         $status = $this->input->post('status');
 
-        // if ($status == 5) {
-        //     $pSurat = $this->db->get_where('pengajuan_surat', ['id' => $id])->row_array();
-        //     $pndk = $this->db->get_where('mahasiswa', ['nim' => $pSurat['NIM']])->row_array();
-        //     $dateNow = date('Y-m-d');
+        if ($status == 5) {
+            $pSurat = $this->db->get_where('pengajuan_surat', ['id' => $id])->row_array();
+            $pndk = $this->db->get_where('mahasiswa', ['nim' => $pSurat['NIM']])->row_array();
+            $dateNow = date('Y-m-d');
 
-        //     $save = [
-        //         'nama_surat_keluar' => '[' . $pndk['nama'] . '-' . $pndk['nim'] . ']-Surat ' . $options[$pSurat['jenis_surat']],
-        //         'tanggal_surat_keluar' => date('Y-m-d', strtotime($dateNow)),
-        //         'keterangan_surat_keluar' => 'ID: ' . $pSurat['id']
-        //     ];
+            $save = [
+                'nama_surat_keluar' => '[' . $pndk['nama'] . '-' . $pndk['nim'] . ']-Surat ' . $options[$pSurat['jenis_surat']],
+                'tanggal_surat_keluar' => date('Y-m-d', strtotime($dateNow)),
+                'keterangan_surat_keluar' => 'ID: ' . $pSurat['id']
+            ];
 
-        //     $this->db->insert('surat_keluar', $save);
-        // };
+            $this->db->insert('surat_keluar', $save);
+        };
 
         $this->db->set('status', $status);
         $this->db->where(['id' => $id]);

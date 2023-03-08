@@ -87,9 +87,9 @@
                                                             </div>
                                                         </div>
                                                     <?php endforeach; ?>
-                                                    <li class="delete"><a href="javascript:;" data-bs-toggle="modal" data-bs-target="#hapus"><i class="icon-trash"></i></a></li>
+                                                    <li class="delete"><a href="javascript:;" data-bs-toggle="modal" data-bs-target="#hapus<?= $key['id'] ?>"><i class="icon-trash"></i></a></li>
                                                     <?php foreach ($pengaju as $key) : ?>
-                                                        <div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="hapusTitle" aria-hidden="true">
+                                                        <div class="modal fade" id="hapus<?= $key['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="hapusTitle" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
