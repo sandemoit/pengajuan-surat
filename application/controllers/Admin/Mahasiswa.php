@@ -29,11 +29,37 @@ class Mahasiswa extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Tambah Mahasiswa';
 
-        $this->load->view('template/header', $data);
-        $this->load->view('template/topbar', $data);
-        $this->load->view('template/sidebar', $data);
-        $this->load->view('admin/mahasiswa/tambah', $data);
-        $this->load->view('template/footer', $data);
+        $this->form_validation->set_rules('nim', 'Nim', 'required|trim|is_unique[mahasiswa.nim]');
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('tmpt_lhr', 'Tempat Lahir', 'required|trim');
+        $this->form_validation->set_rules('tgl_lhr', 'Tanggal Lahir', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('rt', 'RT', 'required|trim');
+        $this->form_validation->set_rules('rw', 'RW', 'required|trim');
+        $this->form_validation->set_rules('nowa', 'No WA', 'required|trim');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('template/header', $data);
+            $this->load->view('template/topbar', $data);
+            $this->load->view('template/sidebar', $data);
+            $this->load->view('admin/mahasiswa/tambah', $data);
+            $this->load->view('template/footer', $data);
+        } else {
+            $insert = [
+                'nim' => $this->input->post('nim', TRUE),
+                'nama' => $this->input->post('nama', TRUE),
+                'tmpt_lhr' => $this->input->post('tmpt_lhr', TRUE),
+                'tgl_lhr' => date('Y-m-d', strtotime($this->input->post("tgl_lhr", TRUE))),
+                'alamat' => $this->input->post('alamat', TRUE),
+                'rt' => $this->input->post('rt', TRUE),
+                'rw' => $this->input->post('rw', TRUE),
+                'nowa' => $this->input->post('nowa', TRUE)
+            ];
+
+            $this->Admin_model->insert('mahasiswa', $insert);
+            set_pesan('Data berhasil diubah!');
+            redirect('admin/mahasiswa');
+        }
     }
 
     public function edit($id)
@@ -43,7 +69,7 @@ class Mahasiswa extends CI_Controller
         $data['mahasiswa'] = $this->db->get_where('mahasiswa', ['id' => $id])->row_array();
 
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-        $this->form_validation->set_rules('tmp_lhr', 'Tempat Lahir', 'required|trim');
+        $this->form_validation->set_rules('tmpt_lhr', 'Tempat Lahir', 'required|trim');
         $this->form_validation->set_rules('tgl_lhr', 'Tanggal Lahir', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('rt', 'RT', 'required|trim');

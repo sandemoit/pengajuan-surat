@@ -11,7 +11,8 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label" for="exampleFormControlInput1">NIM</label>
-                                <input class="form-control" id="nim" name="nim" type="text">
+                                <input class="form-control" id="nim" name="nim" type="number">
+                                <?= form_error('nim', '<div class="text-danger">', '</div>'); ?>
                             </div>
                         </div>
                     </div>
