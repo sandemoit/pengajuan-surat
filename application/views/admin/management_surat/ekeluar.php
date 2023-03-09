@@ -3,7 +3,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Form Tambah</h5>
+                    <h5>Form Edit</h5>
                 </div>
                 <?php echo form_open_multipart(); ?>
                 <input type="hidden" name="id_surat_keluar">
