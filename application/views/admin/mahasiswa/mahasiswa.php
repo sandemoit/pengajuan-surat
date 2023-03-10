@@ -7,6 +7,13 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3 project-list">
+            <div class="card">
+                <div class="row">
+                    <div class="form-group mb-0 me-0"></div><a class="btn btn-success" href="<?= site_url('admin/mahasiswa/import_excel') ?>"> <i data-feather="plus-square"> </i>Import Excel</a>
+                </div>
+            </div>
+        </div>
         <div class="col-sm-12">
             <?= $this->session->flashdata('message'); ?>
             <div class="card">
@@ -39,9 +46,9 @@
                                         <td><?= $key['nowa']; ?></td>
                                         <td>
                                             <ul class="action">
-                                                <li class="edit"> <a href="<?= site_url('admin/mahasiswa/edit/' . $key['id']) ?>"><i class="icon-pencil-alt"></i></a></li>
-                                                <li class=" delete"><a href="javascript:;" data-bs-toggle="modal" data-bs-target="#hapus<?= $key['id'] ?>"><i class="icon-trash"></i></a></li>
-                                                <div class="modal fade" id="hapus<?= $key['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="hapusTitle" aria-hidden="true">
+                                                <li class="edit"> <a href="<?= site_url('admin/mahasiswa/edit/' . $key['nim']) ?>"><i class="icon-pencil-alt"></i></a></li>
+                                                <li class=" delete"><a href="javascript:;" data-bs-toggle="modal" data-bs-target="#hapus<?= $key['nim'] ?>"><i class="icon-trash"></i></a></li>
+                                                <div class="modal fade" id="hapus<?= $key['nim'] ?>" tabindex="-1" role="dialog" aria-labelledby="hapusTitle" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">

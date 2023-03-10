@@ -40,7 +40,7 @@ class Pengajuan extends CI_Controller
             'SIMB' => 'Izin Mendirikan Bangunan',
         ];
 
-        $data['pengaju'] = $this->db->get('pengajuan_surat')->result_array();
+        $data['pengaju'] = $this->Admin_model->get_pengajuan();
 
         $this->load->view('template/header', $data);
         $this->load->view('template/topbar', $data);

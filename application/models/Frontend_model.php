@@ -22,8 +22,9 @@ class Frontend_model extends CI_Model
 
     public function showById($id)
     {
-        $query = 'SELECT * FROM pengajuan_surat';
-
-        return $this->db->query($query)->row_array();
+        $this->db->select('*');
+        $this->db->join('mahasiswa', 'mahasiswa.nim=pengajuan_surat.NIM');
+        $query = $this->db->get('pengajuan_surat', ['id' => $id])->row_array();
+        return $query;
     }
 }

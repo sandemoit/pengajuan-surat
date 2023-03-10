@@ -27,7 +27,7 @@
 									<td><?= $row['NIM'] ?></td>
 								</tr>
 								<tr>
-									<td>No Hp</td>
+									<td>No Hp/WA</td>
 									<td>:</td>
 									<td><?= $row['nowa'] ?></td>
 								</tr>
