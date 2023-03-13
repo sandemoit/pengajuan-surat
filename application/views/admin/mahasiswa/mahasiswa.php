@@ -3,14 +3,21 @@
         <div class="col-md-3 project-list">
             <div class="card">
                 <div class="row">
-                    <div class="form-group mb-0 me-0"></div><a class="btn btn-primary" href="<?= site_url('admin/mahasiswa/tambah') ?>"> <i data-feather="plus-square"> </i>Mahasiswa</a>
+                    <div class="form-group mb-0 me-0"></div><a class="btn btn-primary" href="<?= site_url('admin/mahasiswa/tambah') ?>"> <i data-feather="plus-square"> </i>Tambah Mahasiswa</a>
                 </div>
             </div>
         </div>
         <div class="col-md-3 project-list">
             <div class="card">
                 <div class="row">
-                    <div class="form-group mb-0 me-0"></div><a class="btn btn-success" href="<?= site_url('admin/mahasiswa/import_excel') ?>"> <i data-feather="plus-square"> </i>Import Excel</a>
+                    <div class="form-group mb-0 me-0"></div><a class="btn btn-success" href="<?= site_url('admin/mahasiswa/import_excel') ?>"> <i data-feather="file-plus"> </i>Import Excel</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 project-list">
+            <div class="card">
+                <div class="row">
+                    <div class="form-group mb-0 me-0"></div><a class="btn btn-danger" href="<?= site_url('admin/mahasiswa/deleteall') ?>"> <i data-feather="trash"> </i>Delete Mahasiswa</a>
                 </div>
             </div>
         </div>

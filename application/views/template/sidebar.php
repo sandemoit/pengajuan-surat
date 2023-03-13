@@ -64,15 +64,17 @@
                                     <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#fill-file"></use>
                                 </svg><span>Management Pegawai</span></a>
                         </li>
-                        <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="<?= site_url('manauser') ?>">
-                                <svg class="stroke-icon">
-                                    <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#stroke-user"></use>
-                                </svg>
-                                <svg class="fill-icon">
-                                    <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#fill-user"></use>
-                                </svg><span>Management User</span></a>
-                        </li>
-                        <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="<?= site_url('manauser') ?>">
+                        <?php if (is_admin()) : ?>
+                            <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="<?= site_url('admin/manauser') ?>">
+                                    <svg class="stroke-icon">
+                                        <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#stroke-user"></use>
+                                    </svg>
+                                    <svg class="fill-icon">
+                                        <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#fill-user"></use>
+                                    </svg><span>Management User</span></a>
+                            </li>
+                        <?php endif; ?>
+                        <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="<?= site_url('admin/konfigurasi') ?>">
                                 <svg class="stroke-icon">
                                     <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#stroke-internationalization"></use>
                                 </svg>

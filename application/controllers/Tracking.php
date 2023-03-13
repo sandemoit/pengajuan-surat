@@ -13,6 +13,7 @@ class Tracking extends CI_Controller
 
     public function index()
     {
+        $data['konfigurasi'] = $this->db->get('konfigurasi')->row_array();
         // $data = $this->dashboard->user();
         $data['profil'] = $this->Galery_model->profil();
         $data['title'] = 'Tracking';
@@ -44,6 +45,7 @@ class Tracking extends CI_Controller
 
     public function tracked()
     {
+        $data['konfigurasi'] = $this->db->get('konfigurasi')->row_array();
         $id = $this->uri->segment(3);
         $data['row'] = $this->Frontend_model->showById($id);
         $data['options'] = [

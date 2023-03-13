@@ -15,6 +15,7 @@ class Suratonline extends CI_Controller
     {
         $data['profil'] = $this->galery->profil();
         $data['title'] = 'Pengajuan Surat Online';
+        $data['konfigurasi'] = $this->db->get('konfigurasi')->row_array();
 
         $data['options'] = [
             'Pilih',
@@ -113,9 +114,7 @@ class Suratonline extends CI_Controller
 
         $data = [
             'id' => $id,
-            'nama' => $nama,
             'nim' => $nim,
-            'nowa' => $nowa,
             'jenis_surat' => $jenis_surat,
             'file' => $file,
             'tanggal' => date('Y-m-d'),

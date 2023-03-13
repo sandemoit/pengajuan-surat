@@ -20,10 +20,12 @@
             </div>
             <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
                 <ul class="nav-menus">
-                    <li> <span class="header-search">
+                    <!-- <li> <span class="header-search">
                             <svg>
                                 <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#search"></use>
-                            </svg></span></li>
+                            </svg>
+                        </span>
+                    </li> -->
                     <li>
                         <div class="mode">
                             <svg>
@@ -31,7 +33,7 @@
                             </svg>
                         </div>
                     </li>
-                    <li class="onhover-dropdown">
+                    <!-- <li class="onhover-dropdown">
                         <div class="notification-box">
                             <svg>
                                 <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#notification"></use>
@@ -55,18 +57,16 @@
                                 <li><a class="f-w-700" href="#">Check all</a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="profile-nav onhover-dropdown pe-0 py-0">
-                        <div class="media profile-media"><img class="b-r-10" src="<?php echo base_url('assets') ?>/images/dashboard/profile.png" alt="">
+                        <div class="media profile-media"><img class="b-r-10" src="<?php echo base_url('assets') ?>/images/avtar/<?= $user['image'] ?>" alt="">
                             <div class="media-body"><span><?= $user['name'] ?></span>
                                 <p class="mb-0 font-roboto"><?= $user['role'] ?><i class="middle fa fa-angle-down"></i></p>
                             </div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div">
                             <li><a href="#"><i data-feather="user"></i><span>Account </span></a></li>
-                            <li><a href="#"><i data-feather="mail"></i><span>Inbox</span></a></li>
-                            <li><a href="#"><i data-feather="file-text"></i><span>Taskboard</span></a></li>
-                            <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li>
+                            <li><a href="<?= site_url('admin/konfigurasi') ?>"><i data-feather="settings"></i><span>Konfigurasi</span></a></li>
                             <li><a href="<?= site_url('admin/auth/logout'); ?>"><i data-feather="log-in"> </i><span>Log out</span></a></li>
                         </ul>
                     </li>

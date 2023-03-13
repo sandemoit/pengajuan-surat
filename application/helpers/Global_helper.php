@@ -5,6 +5,20 @@ function is_logged_in()
     $ci->session->userdata('email') || redirect('admin/auth');
 }
 
+function is_admin()
+{
+    $ci = get_instance();
+    $role = $ci->session->get_userdata('login_session')['role'];
+
+    $status  = true;
+
+    if ($role != '1') {
+        $status = false;
+    }
+
+    return $status;
+}
+
 function userdata($field)
 {
     $ci = get_instance();

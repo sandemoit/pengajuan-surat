@@ -2,7 +2,7 @@
 <footer class="footer py-4">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-4 text-lg-left" style="color:white">Copyright © Kelurahan Pulau <?= date('Y') ?>
+            <div class="col-lg-4 text-lg-left" style="color:white">Copyright © <?= $konfigurasi['nama_perusahaan'] ?> <?= date('Y') ?>
             </div>
             <div class="col-lg-4 my-3 my-lg-0">
                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-youtube"></i></a>
@@ -10,8 +10,8 @@
                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="col-lg-4 text-lg-right">
-                <a class="mr-3" href="#!">Contact</a>
-                <a href="#!">Other</a>
+                <a class="mr-3" href="tel:<?= $konfigurasi['nohp'] ?>">Contact</a>
+                <a href="mailto:<?= $konfigurasi['email'] ?>">Email</a>
             </div>
         </div>
     </div>

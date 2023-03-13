@@ -185,4 +185,15 @@ class Mahasiswa extends CI_Controller
         set_pesan('Data berhasil dihapus!');
         redirect('admin/mahasiswa');
     }
+
+    public function deleteall()
+    {
+        $hapus = $this->db->empty_table('mahasiswa');
+        if ($hapus) {
+            set_pesan('Data Telah Terhapus Semua!');
+        } else {
+            set_pesan('Data Gagal Terhapus!', false);
+        }
+        redirect('admin/mahasiswa');
+    }
 }

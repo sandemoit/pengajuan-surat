@@ -16,6 +16,7 @@ class Home extends CI_Controller
             'title' => 'Home - Permohonan Surat Pengantar',
             'sub_title' => ''
         ];
+        $data['konfigurasi'] = $this->db->get('konfigurasi')->row_array();
 
         $this->load->view('frontend/header', $title);
         $this->load->view('frontend/home', $data);
