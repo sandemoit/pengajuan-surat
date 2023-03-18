@@ -87,7 +87,7 @@ class Mahasiswa extends CI_Controller
                     $rt = $spreadsheet->getActiveSheet()->getCell('F' . $row->getRowIndex());
                     $rw = $spreadsheet->getActiveSheet()->getCell('G' . $row->getRowIndex());
                     $nowa = $spreadsheet->getActiveSheet()->getCell('H' . $row->getRowIndex());
-                    $data = array(
+                    $data = [
                         'nim' => $nim,
                         'nama' => $nama,
                         'tmpt_lhr' => $tmpt_lhr,
@@ -96,9 +96,9 @@ class Mahasiswa extends CI_Controller
                         'rt' => $rt,
                         'rw' => $rw,
                         'nowa' => $nowa,
-                    );
+                    ];
 
-                    $this->db->insert('siswa', $data);
+                    $this->db->insert('mahasiswa', $data);
                     $count_Rows++;
                 }
                 set_pesan('Successfulyy Data Imported!');
@@ -161,7 +161,6 @@ class Mahasiswa extends CI_Controller
             $this->load->view('admin/mahasiswa/edit', $data);
             $this->load->view('template/footer', $data);
         } else {
-
             $update = [
                 'nama' => $this->input->post('nama', TRUE),
                 'tmpt_lhr' => $this->input->post('tmpt_lhr', TRUE),

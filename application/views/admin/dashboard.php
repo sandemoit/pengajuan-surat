@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h4><?= $total_sk ?></h4><span class="f-light">Surat Keterangan</span>
+                                    <h4><?= $total_ps ?></h4><span class="f-light">Pengajuan</span>
                                 </div>
                             </div>
                             <div class="font-secondary f-w-500"><i class="icon-arrow-up icon-rotate me-1"></i><span>+50%</span></div>

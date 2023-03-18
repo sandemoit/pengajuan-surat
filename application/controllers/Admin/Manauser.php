@@ -35,6 +35,7 @@ class Manauser extends CI_Controller
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Tambah User';
+        $data['pegawai'] = $this->Admin_model->get('pegawai');
 
         $this->form_validation->set_rules('name', 'Nama', 'required|trim');
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]');

@@ -16,6 +16,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label class="form-label" for="exampleFormControlInput1">Nama</label>
+                                <select class="form-select digits" id="nama" name="nama">
+                                    <option value="">Select Pegawai</option>
+                                    <?php foreach ($pegawai as $key) : ?>
+                                        <option value="<?= $key('nama') ?>"><?= $key('nama') ?>[<?= $key('nip') ?>]</option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <?= form_error('nama', '<div class="text-danger">', '</div>'); ?>
+                            </div>
+                        </div>
+                    </div>
                     <div class=" row">
                         <div class="col">
                             <div class="mb-3">

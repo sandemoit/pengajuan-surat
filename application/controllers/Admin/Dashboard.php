@@ -14,7 +14,7 @@ class Dashboard extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Dashboard';
 
-        $data['total_sk'] = $this->db->query('select * from pengajuan_surat')->num_rows();
+        $data['total_ps'] = $this->db->query('select * from pengajuan_surat')->num_rows();
         $data['total_masuk'] = $this->db->query('select * from surat_masuk')->num_rows();
         $data['total_keluar'] = $this->db->query('select * from surat_keluar')->num_rows();
         $data['total_user'] = $this->db->query('select * from user')->num_rows();

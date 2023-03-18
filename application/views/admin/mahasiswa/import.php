@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <?= $this->session->flashdata('message'); ?>
             <div class="card">
                 <div class="card-header">
