@@ -49,4 +49,29 @@ class Konfigurasi extends CI_Controller
             redirect('admin/konfigurasi');
         }
     }
+
+    public function updatelogo()
+    {
+        $config['upload_path'] = './assets/images/logo/';
+        $config['allowed_types'] = 'jpeg|jpg|png';
+        $config['max_size'] = 2048;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('logo')) {
+            // jika gagal upload, tampilkan pesan error
+            $error = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('logo', '<div class="alert alert-danger">Logo gagal diupdate</div>');
+            redirect('admin/konfigurasi');
+        } else {
+            // jika sukses upload, ambil data file yang diupload
+            $data = $this->upload->data();
+            $file_name = $data['file_name'];
+            // simpan nama file ke database
+            $this->db->set('logo', $file_name);
+            $this->db->update('konfigurasi');
+            $this->session->set_flashdata('logo', '<div class="alert alert-success">Logo berhasil diupdate</div>');
+            redirect('admin/konfigurasi');
+        }
+    }
 }

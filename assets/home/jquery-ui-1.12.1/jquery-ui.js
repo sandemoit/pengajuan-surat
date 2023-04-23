@@ -8454,7 +8454,7 @@ $.extend( Datepicker.prototype, {
 	COOKIE: "D, dd M yy",
 	ISO_8601: "yy-mm-dd",
 	RFC_822: "D, d M y",
-	RFC_850: "DD, dd-M-y",
+	RFC_850: "DD, dY-m-d",
 	RFC_1036: "D, d M y",
 	RFC_1123: "D, d M yy",
 	RFC_2822: "D, d M yy",

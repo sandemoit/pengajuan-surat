@@ -10,3 +10,15 @@ ALUR APLIKASI Permohonan Surat Pengantar Magang/PKL/Skripsi Universitas Bina Dar
 - PPM PROSES SURAT KEPADA MAHASISWA (UPDATE)
 - PPM SCAN UPLOAD HASIL PEMBERKASAN YANG TELAH DI TTD KEPADA MAHASISWA
 - MAHASISWA MENERIMA DAN MENCETAK SURAT
+
+1. GENERATE NO SURAT
+
+Dari siapa surat keluar:
+1. Direktur
+2. Manager
+3. HRD
+
+Surat Ditujukan Kepada siapa?
+1. Direktur
+2. Manager
+3. HRD

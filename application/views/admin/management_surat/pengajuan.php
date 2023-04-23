@@ -8,15 +8,13 @@
                         <table class="display dataTable no-footer" id="basic-6">
                             <thead>
                                 <th>No</th>
-                                <th>ID Pengajuan</th>
-                                <th>Nama Pengaju (NIM)</th>
+                                <th>No Surat</th>
+                                <th>Nama Pengaju</th>
                                 <th>File</th>
                                 <th>Status Pengajuan</th>
-                                <th>No HP</th>
                                 <th>Tanggal</th>
                                 <th>Jenis Surat</th>
                                 <th>Action</th>
-                                </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
@@ -24,12 +22,11 @@
                                     <?php if ($key['status'] !== '5') : ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><?= $key['id']; ?></td>
-                                            <td><?= $key['nama'] . ' (' . $key['NIM'] . ')'; ?></td>
+                                            <td><?= $key['nosurat'] ?></td>
+                                            <td><?= $key['nama'] ?></td>
                                             <td class="action"> <a class="pdf" href="<?= base_url('assets/uploads/berkas/') . $key['file']; ?>"><i class="icofont icofont-file-pdf"></i></a></td>
                                             <td class="text-center"> <?= $status[$key['status']]; ?></td>
-                                            <td><a target="_blank" href="https://wa.me/62<?= $key['nowa']; ?>">0<?= $key['nowa']; ?></a></td>
-                                            <td><?= $key['tanggal']; ?></td>
+                                            <td><?= date('d/m/Y', strtotime($key['tanggal'])) ?></td>
                                             <td><?= $options[$key['jenis_surat']]; ?></td>
                                             <td>
                                                 <ul class="action">
@@ -39,7 +36,7 @@
                                                             <div class="modal-dialog modal-md">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h4 class="modal-title" id="myLargeModalLabel">Update Status Pengajuan ID: <?= $key['id']; ?></h4>
+                                                                        <h4 class="modal-title" id="myLargeModalLabel">Update Status Pengajuan No Surat: <?= $key['nosurat'] ?></h4>
                                                                         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                     </div>
                                                                     <form action="<?= base_url('admin/pengajuan/updateStatus/') . $key['id']; ?>" method="POST">
@@ -72,7 +69,7 @@
                                                                                         </div>
                                                                                         <div class="form-check radio radio-primary">
                                                                                             <input class="form-check-input" id="radio55" type="radio" name="status" value="5">
-                                                                                            <label class="form-check-label" for="radio55">Ditandatangani Lurah/<b>Selesai</b></label>
+                                                                                            <label class="form-check-label" for="radio55">Ditandatangani Atasan/<b>Selesai</b></label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>

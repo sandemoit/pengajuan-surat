@@ -15,12 +15,11 @@
                         <table class="display dataTable no-footer" id="basic-6">
                             <thead>
                                 <th>No</th>
-                                <th>Nama Surat</th>
+                                <th>Perihal Surat</th>
                                 <th>Tanggal</th>
                                 <th>Keterangan</th>
                                 <th>File</th>
                                 <th>Action</th>
-                                </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>

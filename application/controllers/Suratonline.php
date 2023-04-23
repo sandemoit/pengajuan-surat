@@ -8,7 +8,8 @@ class Suratonline extends CI_Controller
         parent::__construct();
         $this->load->model('galery_model', 'galery');
         $this->load->model('admin_model');
-        $this->load->model('mahasiswa_model', 'mahasiswa');
+        $this->load->model('karyawan_model', 'karyawan');
+        $this->load->model('Romawi_model', 'karyawan');
     }
 
     public function index()
@@ -55,52 +56,35 @@ class Suratonline extends CI_Controller
             4 => 4,  // Sudah Ditandatangani Lurah dan Selesai
         ];
 
+        $nosurat = $this->input->post('nosurat', TRUE);
         $nama = $this->input->post('nama', TRUE);
-        $nim = $this->input->post('nim', TRUE);
+        $hal = $this->input->post('hal', TRUE);
         $nowa = $this->input->post('nowa', TRUE);
         $jenis_surat = $this->input->post('jenis_surat', TRUE);
 
-        $ceknim = $this->mahasiswa->cek_mahasiswa($nim)->num_rows();
-
-        if ($ceknim <= 0) {
+        $ceknosurat = $this->karyawan->cek_karyawan($nosurat)->num_rows();
+        if ($ceknosurat <= 0) {
             $save = [
-                'nim' => $nim,
+                'nosurat' => $nosurat,
+                'hal' => $hal,
                 'nama' => $nama,
                 'nowa' => $nowa,
             ];
-
-            $this->db->insert('mahasiswa', $save);
+            $this->db->insert('karyawan', $save);
         }
-
-        //Output a v4 UUID 
-        $rid = uniqid($jenis_surat, TRUE);
-        $rid2 = str_replace('.', '', $rid);
-        $rid3 = substr(str_shuffle($rid2), 0, 3);
-
-        $cc = $this->db->count_all('pengajuan_surat') + 1;
-        $count = str_pad($cc, 3, STR_PAD_LEFT);
-        $id = $jenis_surat . "-";
-        $d = date('d');
-        $y = date('y');
-        $mnth = date("m");
-        $s = date('s');
-        $randomize = $d + $y + $mnth + $s;
-        $id = $id . $rid3 . $randomize . $count . $y;
 
         if ($_FILES['file']['size'] >= 10242880) {
             set_pesan('File Lebih 10MB!', false);
             redirect('suratonline');
         }
 
-        if ($_FILES['file']['name'] == null) {
-            $file = '-';
-        } else {
-            $namafile = substr($_FILES['file']['name'], -7);
-            $file = $jenis_surat . uniqid() . $namafile;
-            $config['upload_path']          = './assets/uploads/berkas';
-            $config['allowed_types']        = 'JPEG/JPG/PDF/PNG';
-            $config['max_size']             = 10240; // 10MB
-            $config['file_name']            = $file;
+        //cek jika ada gambar di upload
+        $upload_file = $_FILES['file']['name'];
+        if ($upload_file) {
+            $config['max_size']      = '2048';
+            $config['upload_path']   = './assets/uploads/berkas';
+            $config['allowed_types'] = 'pdf|doc|docx|jpg|jpeg|png';
+            $config['encrypt_name']  = TRUE;
 
             $this->load->library('upload', $config);
 
@@ -113,16 +97,15 @@ class Suratonline extends CI_Controller
         }
 
         $data = [
-            'id' => $id,
-            'nim' => $nim,
+            'nosurat' => $nosurat,
+            'hal' => $hal,
             'jenis_surat' => $jenis_surat,
-            'file' => $file,
             'tanggal' => date('Y-m-d'),
             'status' => $status[1]
         ];
 
         $this->admin_model->insert('pengajuan_surat', $data);
-        $this->session->set_flashdata('success', '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h5><i class="icon fas fa-check"></i> Selamat!</h5> Berhasil Mengajukan Surat! Berikut <b>ID</b> anda: <b>' . $id . '</b></div>');
+        $this->session->set_flashdata('success', '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h5><i class="icon fas fa-check"></i> Selamat!</h5> Berhasil Mengajukan Surat! Berikut <b>ID</b> anda: <b>' . $nosurat . '</b></div>');
         redirect('suratonline');
     }
 }

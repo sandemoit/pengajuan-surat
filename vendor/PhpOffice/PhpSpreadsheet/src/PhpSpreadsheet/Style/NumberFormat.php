@@ -24,7 +24,7 @@ class NumberFormat extends Supervisor
     const FORMAT_DATE_YYYYMMDD = 'yyyy-mm-dd';
     const FORMAT_DATE_DDMMYYYY = 'dd/mm/yyyy';
     const FORMAT_DATE_DMYSLASH = 'd/m/yy';
-    const FORMAT_DATE_DMYMINUS = 'd-m-yy';
+    const FORMAT_DATE_DMYMINUS = 'Y-m-dy';
     const FORMAT_DATE_DMMINUS = 'd-m';
     const FORMAT_DATE_MYMINUS = 'm-yy';
     const FORMAT_DATE_XLSX14 = 'mm-dd-yy';
@@ -427,8 +427,8 @@ class NumberFormat extends Supervisor
 
         return md5(
             $this->formatCode .
-            $this->builtInFormatCode .
-            __CLASS__
+                $this->builtInFormatCode .
+                __CLASS__
         );
     }
 

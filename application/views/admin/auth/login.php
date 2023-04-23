@@ -67,8 +67,8 @@
                                 </div>
                                 <div class="form-group mb-0">
                                     <div class="checkbox p-0">
-                                        <input id="checkbox1" type="checkbox">
-                                        <label class="text-muted" for="checkbox1">Remember password</label>
+                                        <input id="save_id" name="save_id" type="checkbox">
+                                        <label class="text-muted" for="save_id">Remember password</label>
                                     </div><a class="link" href="forget-password.html">Forgot password?</a>
                                     <div class="text-end mt-3">
                                         <button class="btn btn-primary btn-block w-100" type="submit">Sign in</button>

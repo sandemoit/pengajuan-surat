@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CodeIgniter
  *
@@ -36,7 +37,7 @@
  * @since	Version 3.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * CodeIgniter Session Driver Class
@@ -47,7 +48,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author	Andrey Andreev
  * @link	https://codeigniter.com/userguide3/libraries/sessions.html
  */
-abstract class CI_Session_driver {
+abstract class CI_Session_driver
+{
 
 	protected $_config;
 
@@ -97,15 +99,12 @@ abstract class CI_Session_driver {
 	 */
 	public function __construct(&$params)
 	{
-		$this->_config =& $params;
+		$this->_config = &$params;
 
-		if (is_php('7'))
-		{
+		if (is_php('7')) {
 			$this->_success = TRUE;
 			$this->_failure = FALSE;
-		}
-		else
-		{
+		} else {
 			$this->_success = 0;
 			$this->_failure = -1;
 		}
@@ -122,8 +121,7 @@ abstract class CI_Session_driver {
 	 */
 	public function php5_validate_id()
 	{
-		if ($this->_success === 0 && isset($_COOKIE[$this->_config['cookie_name']]) && ! $this->validateId($_COOKIE[$this->_config['cookie_name']]))
-		{
+		if ($this->_success === 0 && isset($_COOKIE[$this->_config['cookie_name']]) && !$this->validateId($_COOKIE[$this->_config['cookie_name']])) {
 			unset($_COOKIE[$this->_config['cookie_name']]);
 		}
 	}
@@ -140,13 +138,12 @@ abstract class CI_Session_driver {
 	 */
 	protected function _cookie_destroy()
 	{
-		if ( ! is_php('7.3'))
-		{
-			$header = 'Set-Cookie: '.$this->_config['cookie_name'].'=';
-			$header .= '; Expires='.gmdate('D, d-M-Y H:i:s T', 1).'; Max-Age=-1';
-			$header .= '; Path='.$this->_config['cookie_path'];
-			$header .= ($this->_config['cookie_domain'] !== '' ? '; Domain='.$this->_config['cookie_domain'] : '');
-			$header .= ($this->_config['cookie_secure'] ? '; Secure' : '').'; HttpOnly; SameSite='.$this->_config['cookie_samesite'];
+		if (!is_php('7.3')) {
+			$header = 'Set-Cookie: ' . $this->_config['cookie_name'] . '=';
+			$header .= '; Expires=' . gmdate('D, Y-m-d H:i:s T', 1) . '; Max-Age=-1';
+			$header .= '; Path=' . $this->_config['cookie_path'];
+			$header .= ($this->_config['cookie_domain'] !== '' ? '; Domain=' . $this->_config['cookie_domain'] : '');
+			$header .= ($this->_config['cookie_secure'] ? '; Secure' : '') . '; HttpOnly; SameSite=' . $this->_config['cookie_samesite'];
 			header($header);
 			return;
 		}
@@ -192,8 +189,7 @@ abstract class CI_Session_driver {
 	 */
 	protected function _release_lock()
 	{
-		if ($this->_lock)
-		{
+		if ($this->_lock) {
 			$this->_lock = FALSE;
 		}
 

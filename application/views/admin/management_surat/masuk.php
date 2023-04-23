@@ -20,7 +20,6 @@
                                 <th>Keterangan</th>
                                 <th>File</th>
                                 <th>Action</th>
-                                </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>

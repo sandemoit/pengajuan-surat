@@ -31,11 +31,20 @@ class Admin_model extends CI_Model
     function get_pengajuan()
     {
         $query = "SELECT *
-                    FROM `pengajuan_surat` JOIN `mahasiswa`
-                    ON `pengajuan_surat`.`NIM` = `mahasiswa`.`nim`
+                    FROM `pengajuan_surat` JOIN `karyawan`
+                    ON `pengajuan_surat`.`NOSURAT` = `karyawan`.`nosurat`
                     ORDER BY `tanggal` desc
         ";
 
         return $this->db->query($query)->result_array();
+    }
+
+    public function getMax($table, $field, $kode = null)
+    {
+        $this->db->select_max($field);
+        if ($kode != null) {
+            $this->db->like($field, $kode, 'after');
+        }
+        return $this->db->get($table)->row_array()[$field];
     }
 }

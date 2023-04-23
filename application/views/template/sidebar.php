@@ -37,6 +37,19 @@
                         <li class="sidebar-list">
                             <a class="sidebar-link sidebar-title" href="javascript:;">
                                 <svg class="stroke-icon">
+                                    <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#stroke-project"></use>
+                                </svg>
+                                <svg class="fill-icon">
+                                    <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#fill-project"></use>
+                                </svg><span>Master Surat </span></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="<?= site_url('admin/jenis') ?>">Jenis Surat</a></li>
+                                <li><a href="<?= site_url('admin/kategori') ?>">Kategori Surat</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title" href="javascript:;">
+                                <svg class="stroke-icon">
                                     <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#stroke-email"></use>
                                 </svg>
                                 <svg class="fill-icon">
@@ -44,25 +57,25 @@
                                 </svg><span>Management Surat </span></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="<?= site_url('admin/pengajuan') ?>">Pengajuan Surat</a></li>
-                                <li><a href="<?= site_url('admin/surat_masuk') ?>">Surat Masuk</a></li>
+                                <!-- <li><a href="<?= site_url('admin/surat_masuk') ?>">Surat Masuk</a></li> -->
                                 <li><a href="<?= site_url('admin/surat_keluar') ?>">Surat Keluar</a></li>
                             </ul>
                         </li>
-                        <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="<?= site_url('admin/mahasiswa') ?>">
+                        <!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="<?= site_url('admin/karyawan') ?>">
                                 <svg class="stroke-icon">
                                     <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#stroke-user"></use>
                                 </svg>
                                 <svg class="fill-icon">
                                     <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#fill-user"></use>
-                                </svg><span>Mahasiswa</span></a>
-                        </li>
-                        <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="<?= site_url('manapegawai') ?>">
+                                </svg><span>Karyawan</span></a>
+                        </li> -->
+                        <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="<?= site_url('admin/karyawan') ?>">
                                 <svg class="stroke-icon">
                                     <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#stroke-file"></use>
                                 </svg>
                                 <svg class="fill-icon">
                                     <use href="<?php echo base_url('assets') ?>/svg/icon-sprite.svg#fill-file"></use>
-                                </svg><span>Management Pegawai</span></a>
+                                </svg><span>Management Karyawan</span></a>
                         </li>
                         <?php if (is_admin()) : ?>
                             <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="<?= site_url('admin/manauser') ?>">

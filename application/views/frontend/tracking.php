@@ -5,19 +5,19 @@
 		<?php endif; ?>
 		<div class="text-center">
 			<h2 class="section-heading text-uppercase">Tracking Surat Online</h2>
-			<h3 class="section-subheading text-muted">Masukkan ID Surat untuk <b>Track</b>:</h3>
+			<h3 class="section-subheading text-muted">Masukkan No Surat Surat untuk <b>Track</b>:</h3>
 		</div>
 		<div class="text-justify pl-5 pr-5">
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-10 col-lg-8">
-					<?= form_open('tracking/cari', 'id="tracking", class="card card-sm"') ?>
+					<?= form_open('tracking/cari', 'nosurat="tracking", class="card card-sm"') ?>
 					<div class="card-body row no-gutters align-items-center">
 						<div class="col-auto">
 							<i class="fas fa-search h4 text-body"></i>
 						</div>
 						<!--end of col-->
 						<div class="col">
-							<input class="form-control form-control-lg form-control-borderless" type="search" name="trackid" placeholder="Masukkan ID Pengajuan Anda">
+							<input class="form-control form-control-lg form-control-borderless" type="search" name="tracknosurat" placeholder="Masukkan No Surat Pengajuan Anda">
 						</div>
 						<!--end of col-->
 						<div class="col-auto">

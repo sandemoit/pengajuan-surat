@@ -72,13 +72,23 @@ class Pengajuan extends CI_Controller
 
         if ($status == 5) {
             $pSurat = $this->db->get_where('pengajuan_surat', ['id' => $id])->row_array();
-            $pndk = $this->db->get_where('mahasiswa', ['nim' => $pSurat['NIM']])->row_array();
+            $pndk = $this->db->get_where('karyawan', ['nosurat' => $pSurat['NOSURAT']])->row_array();
             $dateNow = date('Y-m-d');
 
+            // Mengenerate No Surat
+            $kode_terakhir = $this->db->query('SELECT * FROM surat_keluar ORDER BY LEFT(keterangan_surat_keluar, 3) ASC');
+            $kode_baru = $kode_terakhir + 1;
+            $y = date('Y');
+            $bulan = date('n');
+            $romawi = getRomawi($bulan);
+            $mnth = $romawi;
+            $kode = str_pad($kode_baru, 3, '0', STR_PAD_LEFT);
+            $keterangan_surat_keluar = $kode . "/PT.GAS" . "/DU" . "/" . $mnth . "/" . $y;
+
             $save = [
-                'nama_surat_keluar' => '[' . $pndk['nama'] . '-' . $pndk['nim'] . ']-Surat ' . $options[$pSurat['jenis_surat']],
+                'nama_surat_keluar' => '[' . $pndk['nama'] . '-' . $pndk['hal'] . ']-Surat ' . $options[$pSurat['jenis_surat']],
                 'tanggal_surat_keluar' => date('Y-m-d', strtotime($dateNow)),
-                'keterangan_surat_keluar' => 'ID: ' . $pSurat['id']
+                'keterangan_surat_keluar' => $keterangan_surat_keluar
             ];
 
             $this->db->insert('surat_keluar', $save);
@@ -88,7 +98,7 @@ class Pengajuan extends CI_Controller
         $this->db->where(['id' => $id]);
         $this->db->update('pengajuan_surat');
 
-        set_pesan('Status Pengajuan ID: ' . $id . ' Has ben update!');
+        set_pesan('Status Surat Masuk Has ben update!');
         redirect('admin/pengajuan');
     }
 
@@ -96,7 +106,7 @@ class Pengajuan extends CI_Controller
     {
         $id = encode_php_tags($id);
         $this->Admin_model->delete('pengajuan_surat', 'id', $id);
-        set_pesan('Data successfully delete');
+        set_pesan('Surat Masuk successfully delete');
         redirect('admin/pengajuan');
     }
 }

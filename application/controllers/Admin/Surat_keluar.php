@@ -45,7 +45,7 @@ class Surat_keluar extends CI_Controller
             $keterangan_surat =  $this->input->post("keterangan_surat", TRUE);
 
             $config['upload_path']          = './assets/uploads/surat_keluar';
-            $config['allowed_types']        = 'pdf|doc|docx';
+            $config['allowed_types']        = 'pdf|doc|docx|jpg|jpeg|png';
             $this->load->library('upload', $config);
 
             if ($this->upload->do_upload('file_surat')) {
@@ -89,7 +89,6 @@ class Surat_keluar extends CI_Controller
             $nama_surat =  $this->input->post("nama_surat", TRUE);
             $tanggal_surat =  $this->input->post("tanggal_surat", TRUE);
             $keterangan_surat =  $this->input->post("keterangan_surat", TRUE);
-            // $file_surat =  $this->input->post("file_surat", TRUE);
 
             $config['upload_path']          = './assets/uploads/surat_keluar';
             $config['allowed_types']        = 'pdf|doc|docx';

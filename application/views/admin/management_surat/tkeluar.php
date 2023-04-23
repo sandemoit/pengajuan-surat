@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
                     <h5>Form Tambah</h5>
@@ -41,6 +41,7 @@
                             <div>
                                 <label class="form-label" for="exampleFormControlTextarea4">File Surat</label>
                                 <input class="form-control" id="file_surat" name="file_surat" type="file">
+                                <?= form_error('file_surat', '<div class="text-danger">', '</div>'); ?>
                             </div>
                         </div>
                     </div>

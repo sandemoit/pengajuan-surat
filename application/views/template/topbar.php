@@ -18,6 +18,20 @@
                 <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="<?php echo base_url('assets') ?>/images/logo/logo.png" alt=""></a></div>
                 <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
             </div>
+
+            <!-- <div class="left-header col-xxl-5 col-xl-6 col-lg-5 col-md-4 col-sm-3 p-0">
+                <div class="notification-slider">
+                    <div class="d-flex h-100"> <img src="../assets/images/giftools.gif" alt="gif">
+                        <h6 class="mb-0 f-w-400"><span class="font-primary">IP Address </span><span class="f-light"><?php echo $ip_address ?></span>
+                    </div>
+                    <div class="d-flex h-100"> <img src="../assets/images/giftools.gif" alt="gif">
+                        <h6 class="mb-0 f-w-400"><span class="font-primary">IP Address </span><span class="f-light"><?php echo $os ?></span>
+                    </div>
+                    <div class="d-flex h-100"> <img src="../assets/images/giftools.gif" alt="gif">
+                        <h6 class="mb-0 f-w-400"><span class="font-primary">Browser </span><span class="f-light"><?php echo $browser . ' - ' . $versi_browser ?></span>
+                    </div>
+                </div>
+            </div> -->
             <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
                 <ul class="nav-menus">
                     <!-- <li> <span class="header-search">

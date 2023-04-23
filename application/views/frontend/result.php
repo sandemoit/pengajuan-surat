@@ -12,9 +12,9 @@
 							<h3>Keterangan:</h3>
 							<table class="table">
 								<tr>
-									<td>ID Pengajuan</td>
+									<td>Nomor Surat</td>
 									<td>:</td>
-									<td><?= $row['id'] ?></td>
+									<td><?= $row['nosurat'] ?></td>
 								</tr>
 								<tr>
 									<td>Nama Pengaju</td>
@@ -22,9 +22,9 @@
 									<td><?= $row['nama'] ?></td>
 								</tr>
 								<tr>
-									<td>NIM</td>
+									<td>Hal</td>
 									<td>:</td>
-									<td><?= $row['NIM'] ?></td>
+									<td><?= $row['hal'] ?></td>
 								</tr>
 								<tr>
 									<td>No Hp/WA</td>
@@ -40,7 +40,14 @@
 									<td>File Lampiran</td>
 									<td>:</td>
 									<td>
-										<button class="btn btn-outline-info" data-toggle="modal" data-target="#lihatFile<?= $row['id']; ?>"><i class="fa fa-eye"></i></button>
+										<button class="btn btn-outline-info" data-toggle="modal" data-target="#lihatFile<?= $row['nosurat']; ?>"><i class="fa fa-eye"></i></button>
+									</td>
+								</tr>
+								<tr>
+									<td>File Jawaban</td>
+									<td>:</td>
+									<td>
+										<button class="btn btn-outline-info" data-toggle="modal" data-target="#lihatFile<?= $row['nosurat']; ?>"><i class="fa fa-eye"></i></button>
 									</td>
 								</tr>
 							</table>
@@ -51,32 +58,29 @@
 							<ul class="checkout-bar">
 								<?php if ($row['status'] == '1') : ?>
 									<li class="active first">Pengajuan Surat<br>Pending</li>
-									<li class="">Dokumen<br>Diterima</li>
-									<li class="">Verifikasi Berkas / Persyaratan<br>Dilanjutkan</li>
-									<li class="">Sudah Diketik dan<br>Diparaf</li>
-									<li class="">Sudah Ditandatangani<br>Lurah</li>
-									<li class="">Selesai / Dapat Diambil<br>&nbsp;</li>
+									<li>Dokumen<br>Diterima</li>
+									<li>Verifikasi Berkas / Persyaratan<br>Dilanjutkan</li>
+									<li>Sudah Diketik dan<br>Diparaf</li>
+									<li>Sudah Ditandatangani<br>Lurah</li>
+									<li>Selesai / Dapat Diambil<br>&nbsp;</li>
 								<?php elseif ($row['status'] == '2') : ?>
-
 									<li class="active first">Pengajuan Surat<br>Pending</li>
-									<li class="">Dokumen<br>Ditolak</li>
+									<li>Dokumen<br>Ditolak</li>
 									<h1>MAAF PENGAJUAN ANDA DITOLAK KARENA SYARAT TIDAK TERPENUHI</h1>
-
-
-								<?php elseif ($row['status'] == 3) : ?>
+								<?php elseif ($row['status'] == '3') : ?>
 									<li class="active first">Pengajuan Surat<br>Pending</li>
 									<li class="active">Dokumen<br>Diterima</li>
 									<li class="active">Verifikasi Berkas / Persyaratan<br>Dilanjutkan</li>
-									<li class="">Sudah Diketik dan<br>Diparaf</li>
-									<li class="">Sudah Ditandatangani<br>Lurah</li>
-									<li class="">Selesai / Dapat Diambil<br>&nbsp;</li>
+									<li>Sudah Diketik dan<br>Diparaf</li>
+									<li>Sudah Ditandatangani<br>Lurah</li>
+									<li>Selesai / Dapat Diambil<br>&nbsp;</li>
 								<?php elseif ($row['status'] == '4') : ?>
 									<li class="active first">Pengajuan Surat<br>Pending</li>
 									<li class="active">Dokumen<br>Diterima</li>
 									<li class="active">Verifikasi Berkas / Persyaratan<br>Dilanjutkan</li>
 									<li class="active">Sudah Diketik dan<br>Diparaf</li>
-									<li class="">Sudah Ditandatangani<br>Lurah</li>
-									<li class="">Selesai / Dapat Diambil<br>&nbsp;</li>
+									<li>Sudah Ditandatangani<br>Lurah</li>
+									<li>Selesai / Dapat Diambil<br>&nbsp;</li>
 								<?php elseif ($row['status'] == '5') : ?>
 									<li class="active first">Pengajuan Surat<br>Pending</li>
 									<li class="active">Dokumen<br>Diterima</li>
@@ -97,18 +101,37 @@
 <section class="page-section">
 </section>
 
-<!-- Modal -->
-<div class="modal fade" id="lihatFile<?= $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="fileLampiran" aria-hidden="true">
+<!-- Modal berkas user -->
+<div class="modal fade" id="lihatFile<?= $row['nosurat']; ?>" tabindex="-1" role="dialog" aria-labelledby="fileLampiran" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="fileLampiran">File ID: <?= $row['id'] ?></h5>
+				<h5 class="modal-title" id="fileLampiran">File ID: <?= $row['nosurat'] ?></h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
 				<embed type="application/pdf" width="100%" height="450px;" src="<?= base_url('uploads/berkas') ?>/<?= $row['file'] ?>"></embed>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal berkas jawaban -->
+<div class="modal fade" id="lihatFile<?= $row['nosurat']; ?>" tabindex="-1" role="dialog" aria-labelledby="fileLampiran" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="fileLampiran">File ID: <?= $row['nosurat'] ?></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<embed type="application/pdf" width="100%" height="450px;" src="<?= base_url('uploads/jawaban') ?>/<?= $row['file'] ?>"></embed>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    <h5>Form Tambah Mahasiswa</h5>
+                    <h5>Form <?= $title; ?></h5>
                 </div>
                 <?php echo form_open_multipart(); ?>
                 <div class="card-body">
@@ -15,22 +15,6 @@
                                 <?= form_error('name', '<div class="text-danger">', '</div>'); ?>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3">
-                                <label class="form-label" for="exampleFormControlInput1">Nama</label>
-                                <select class="form-select digits" id="nama" name="nama">
-                                    <option value="">Select Pegawai</option>
-                                    <?php foreach ($pegawai as $key) : ?>
-                                        <option value="<?= $key('nama') ?>"><?= $key('nama') ?>[<?= $key('nip') ?>]</option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <?= form_error('nama', '<div class="text-danger">', '</div>'); ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" row">
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label" for="exampleFormControlInput1">Email</label>
@@ -39,7 +23,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" row">
+                    <div class="row">
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label" for="exampleFormControlInput1">Password</label>
@@ -47,8 +31,6 @@
                                 <?= form_error('password1', '<div class="text-danger">', '</div>'); ?>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label" for="exampleFormControlInput1">Konfirmasi Password</label>
@@ -57,16 +39,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3">
-                                <label class="form-label" for="exampleFormControlInput1">Role</label>
-                                <select class="form-select digits" id="role" name="role">
-                                    <option value="1">Admin</option>
-                                    <option value="2">Karyawan</option>
-                                </select>
-                                <?= form_error('password', '<div class="text-danger">', '</div>'); ?>
-                            </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label" for="exampleFormControlInput1">Role</label>
+                            <select class="form-select digits" id="role" name="role">
+                                <option value="1">Admin</option>
+                                <option value="2">Karyawan</option>
+                            </select>
+                            <?= form_error('password', '<div class="text-danger">', '</div>'); ?>
                         </div>
                     </div>
                 </div>
@@ -74,8 +54,9 @@
                     <button class="btn btn-primary" type="submit">Submit</button>
                     <input class="btn btn-light" type="reset" value="Reset">
                 </div>
-                </form>
             </div>
+            </form>
         </div>
     </div>
+</div>
 </div>

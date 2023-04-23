@@ -25,7 +25,6 @@ class Auth extends CI_Controller
 	{
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
-
 		$user = $this->db->get_where('user', ['email' => $email])->row_array();
 
 		// jika user ada
@@ -37,6 +36,16 @@ class Auth extends CI_Controller
 					'role' => $user['role']
 				];
 				$this->session->set_userdata($data);
+
+				// set cookie
+				if (!empty($this->input->post('save_id'))) {
+					setcookie("loginId", $email, time() + (10 * 3 * 24 * 60 * 60));
+					setcookie("loginId", hash('sha256', $password), time() + (10 * 3 * 24 * 60 * 60));
+				} else {
+					setcookie("loginId", "");
+					setcookie("loginId", "");
+				}
+
 				redirect('admin/dashboard');
 			} else {
 				set_pesan('Wrong password!', FALSE);
@@ -51,6 +60,7 @@ class Auth extends CI_Controller
 	public function logout()
 	{
 		$this->session->unset_userdata('email');
+		delete_cookie('email');
 		set_pesan('Your has ben logout');
 		redirect('admin/auth');
 	}

@@ -11,8 +11,8 @@
             <?= form_open_multipart('suratonline/ajukan', 'id="ajukanSurat"') ?>
             <div class="row">
                 <div class="col-lg-6">
-                    <label for="nim">NIM *</label>
-                    <?= form_input(['name' => 'nim', 'id' => 'nim', 'class' => 'form-control', "required" => "required", 'placeholder' => 'Silahkan masukkan NIM anda']); ?>
+                    <label for="nosurat">No Surat *</label>
+                    <?= form_input(['name' => 'nosurat', 'id' => 'nosurat', 'class' => 'form-control', "required" => "required", 'placeholder' => 'Silahkan masukkan NO SURAT anda']); ?>
                 </div>
                 <div class="col-lg-6">
                     <label for="nama">Nama *</label>
@@ -23,10 +23,14 @@
                     <?= form_input(['type' => 'text', 'name' => 'nowa', 'id' => 'nowa', 'class' => 'form-control', "required" => "required", 'placeholder' => 'Silahkan masukkan No WhatsApp anda']); ?>
                 </div>
                 <div class="col-lg-6 mt-2">
+                    <label for="hal">Hal *</label>
+                    <?= form_input(['type' => 'text', 'name' => 'hal', 'id' => 'hal', 'class' => 'form-control', "required" => "required", 'placeholder' => 'Silahkan masukkan No WhatsApp anda']); ?>
+                </div>
+                <div class="col-lg-6 mt-2">
                     <label for="jenis">Pilih Jenis Surat *</label>
                     <?= form_dropdown('jenis_surat', $options, '', ['id' => 'jenis', 'class' => 'form-control']); ?>
                 </div>
-                <div class="col-lg-12 mt-2">
+                <div class="col-lg-6 mt-2">
                     <label for="file">File Berkas/Lampiran <sup class="text-danger">*PDF Recommended! | Max 5MB</sup></label>
                     <?= form_upload(['name' => 'file', 'id' => 'file', 'class' => 'form-control']) ?>
                 </div>

@@ -48,7 +48,7 @@
                 </div>
                 <div class="card-footer text-end">
                     <button class="btn btn-primary" type="submit">Submit</button>
-                    <input class="btn btn-light" type="reset" value="Reset">
+                    <a href="<?= site_url('admin/surat_keluar') ?>" class="btn btn-light">Back</a>
                 </div>
                 </form>
             </div>

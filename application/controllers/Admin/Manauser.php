@@ -35,12 +35,13 @@ class Manauser extends CI_Controller
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Tambah User';
-        $data['pegawai'] = $this->Admin_model->get('pegawai');
+        $data['pegawai'] = $this->Admin_model->get('karyawan');
 
         $this->form_validation->set_rules('name', 'Nama', 'required|trim');
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]');
         $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'required|trim|matches[password1]');
         $this->form_validation->set_rules('role', 'Role', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('template/header', $data);
@@ -67,7 +68,9 @@ class Manauser extends CI_Controller
 
     public function delete($id)
     {
-        $id = encode_php_tags($id);
+        // validate and sanitize the id parameter
+        $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+        $id = intval($id);
         $this->Admin_model->delete('user', 'id', $id);
         set_pesan('Data berhasil dihapus!');
         redirect('admin/manauser');
